@@ -1,1 +1,1 @@
-export { markup, initSite } from './main.js'
+export { homeMarkup, medicalMarkup, initSite } from './main.js'
