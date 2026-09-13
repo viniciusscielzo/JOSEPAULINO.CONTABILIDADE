@@ -56,7 +56,7 @@ export default function RootLayout({ children }) {
               email: 'contabilidade@escritoriojosepaulino.com.br',
               address: {
                 '@type': 'PostalAddress',
-                streetAddress: 'Rua Barão de Juqueri, 58 — Centro',
+                streetAddress: 'Rua Barão de Juqueri, 58, Centro',
                 addressLocality: 'Bragança Paulista',
                 addressRegion: 'SP',
                 postalCode: '12900-370',

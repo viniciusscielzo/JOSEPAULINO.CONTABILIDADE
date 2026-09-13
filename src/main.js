@@ -3,7 +3,7 @@ const arrow = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 
 
 const header = (medical = false) => `
 <header class="header${medical ? ' campaign-header' : ''}" id="header">
-  <a class="brand header-brand" href="/" aria-label="José Paulino Contabilidade — início"><img src="/logo-jose-paulino-dark.webp" alt="JP | José Paulino Contabilidade | Desde 1928" width="900" height="301"></a>
+  <a class="brand header-brand" href="/" aria-label="José Paulino Contabilidade, início"><img src="/logo-jose-paulino-dark.webp" alt="JP | José Paulino Contabilidade | Desde 1928" width="900" height="301"></a>
   ${medical
     ? '<span class="campaign-context">Contabilidade para médicos</span>'
     : '<nav id="nav" aria-label="Navegação principal"><a href="#sobre">O escritório</a><a href="#especialidades">Especialidades</a><a href="#como">Como trabalhamos</a><a href="/contabilidade-para-medicos/">Para médicos</a><a href="#contato">Contato</a></nav>'}
@@ -17,7 +17,7 @@ const footer = `
     <div class="footer-intro"><a class="brand footer-brand" href="/"><img src="/logo-jose-paulino-dark.webp" alt="José Paulino Contabilidade" width="900" height="301" loading="lazy" decoding="async"></a><p>Diagnóstico e acompanhamento contábil para médicos, empresas, produtores rurais e outros profissionais liberais.</p></div>
     <div><h4>Navegação</h4><a href="/#sobre">O escritório</a><a href="/#especialidades">Especialidades</a><a href="/#como">Como trabalhamos</a><a href="/contabilidade-para-medicos/">Para médicos</a></div>
     <div><h4>Especialidades</h4><a href="/contabilidade-para-medicos/">Saúde</a><a href="/#rural">Contabilidade rural</a><a href="/#especialidades">Regularização</a><a href="/#especialidades">Fiscal e societário</a></div>
-    <div><h4>Contato</h4><a href="${whatsapp}" target="_blank" rel="noopener">(11) 4033-1066</a><a href="mailto:contabilidade@escritoriojosepaulino.com.br">contabilidade@escritoriojosepaulino.com.br</a><span>Rua Barão de Juqueri, 58 — Centro<br>Bragança Paulista/SP</span></div>
+    <div><h4>Contato</h4><a href="${whatsapp}" target="_blank" rel="noopener">(11) 4033-1066</a><a href="mailto:contabilidade@escritoriojosepaulino.com.br">contabilidade@escritoriojosepaulino.com.br</a><span>Rua Barão de Juqueri, 58, Centro<br>Bragança Paulista/SP</span></div>
     <div class="footer-map"><h4>Localização</h4><iframe title="Localização do Escritório José Paulino em Bragança Paulista" src="https://www.google.com/maps?q=Rua%20Bar%C3%A3o%20de%20Juqueri%2C%2058%2C%20Bragan%C3%A7a%20Paulista%2C%20SP&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
   </div>
   <div class="footer-bottom"><span>© <span class="year"></span> Escritório Contábil José Paulino Ltda.</span><a class="made-by" href="https://viniciusscielzo.com.br" target="_blank" rel="noopener">Site desenvolvido por <b>Vinicius Scielzo</b></a><a href="/politica-de-privacidade/">Política de Privacidade</a></div>
@@ -25,10 +25,10 @@ const footer = `
 
 const faqs = [
   ['Quero trocar de contador. Dá trabalho?','Não para você. Solicitamos a documentação ao escritório anterior, conferimos o que foi entregue, identificamos pendências e assumimos a partir do mês seguinte. Se encontrarmos problemas na escrituração anterior, avisamos antes de assumir.'],
-  ['Quais documentos preciso enviar todo mês?','Depende do regime e da atividade. Na reunião inicial você recebe uma lista específica para o seu caso — não uma lista genérica.'],
+  ['Quais documentos preciso enviar todo mês?','Depende do regime e da atividade. Na reunião inicial você recebe uma lista específica para o seu caso, em vez de uma lista genérica.'],
   ['Atendem fora de Bragança Paulista?','Sim. Atendemos presencialmente na região e à distância em todo o estado.'],
   ['Em quanto tempo vocês respondem?','Em até 1 dia útil, para qualquer solicitação.'],
-  ['Sou médico e ganho por plantão e repasse. Compensa abrir empresa?','Depende do volume de receita, das despesas e da origem dos pagamentos. Fazemos a simulação com seus números e mostramos os dois cenários. Em muitos casos compensa; em alguns, não — e dizemos isso também.']
+  ['Sou médico e ganho por plantão e repasse. Compensa abrir empresa?','Depende do volume de receita, das despesas e da origem dos pagamentos. Fazemos a simulação com seus números e mostramos os dois cenários. Em muitos casos compensa. Em alguns, não, e também deixamos isso claro.']
 ]
 
 export const homeMarkup = `
@@ -66,7 +66,7 @@ ${header()}
   </section>
 
   <section class="medical-entry" id="medicos">
-    <div class="medical-entry-copy reveal"><div class="eyebrow light">CONTABILIDADE PARA MÉDICOS</div><h2>Médico não deveria descobrir quanto vai pagar de imposto só em abril.</h2><p>Plantões, cooperativas, consultório, convênios. Quando a renda vem de diferentes fontes, a decisão entre PF e PJ precisa ser feita com números — não com opinião.</p><div class="medical-mini"><span>Livro Caixa</span><span>Carnê-leão</span><span>Simulação PF × PJ</span><span>IRPF</span></div><a class="btn" href="/contabilidade-para-medicos/">Conhecer a assessoria para médicos ${arrow}</a></div>
+    <div class="medical-entry-copy reveal"><div class="eyebrow light">CONTABILIDADE PARA MÉDICOS</div><h2>Médico não deveria descobrir quanto vai pagar de imposto só em abril.</h2><p>Plantões, cooperativas, consultório, convênios. Quando a renda vem de diferentes fontes, a decisão entre PF e PJ precisa ser feita com números, não com opinião.</p><div class="medical-mini"><span>Livro Caixa</span><span>Carnê-leão</span><span>Simulação PF × PJ</span><span>IRPF</span></div><a class="btn" href="/contabilidade-para-medicos/">Conhecer a assessoria para médicos ${arrow}</a></div>
     <div class="medical-entry-visual reveal"><span class="specialty-label">SUA CARREIRA. SEUS NÚMEROS.</span><div class="med-number">PF <i>×</i> PJ</div><p>Receitas, despesas e forma de atuação analisadas juntas para orientar a escolha.</p><a href="/contabilidade-para-medicos/">Conhecer a assessoria médica <b>↗</b></a></div>
   </section>
 
@@ -89,7 +89,7 @@ ${header()}
   <section class="section process" id="como"><div class="section-heading reveal"><div class="eyebrow">COMO TRABALHAMOS</div><h2>Antes da proposta, a <em>situação real.</em></h2></div><div class="process-grid">
     <article class="reveal"><span>01</span><h3>Diagnóstico</h3><p>Olhamos sua situação fiscal, societária e trabalhista. Você descobre onde está o problema mesmo que não feche conosco.</p></article>
     <article class="reveal"><span>02</span><h3>Proposta</h3><p>Apresentamos o que precisa ser feito, em que ordem e por quanto. Sem pacote vendido antes de entender o caso.</p></article>
-    <article class="reveal"><span>03</span><h3>Acompanhamento</h3><p>Cada cliente sabe com quem fala — e fala com quem decide. Toda solicitação tem retorno em até 1 dia útil.</p></article>
+    <article class="reveal"><span>03</span><h3>Acompanhamento</h3><p>Cada cliente sabe com quem fala e conversa diretamente com quem decide. Toda solicitação tem retorno em até 1 dia útil.</p></article>
   </div></section>
 
   <section class="section reasons"><div class="reasons-heading reveal"><div><div class="eyebrow">POR QUE NOS ESCOLHEM</div><h2>Tradição que ainda atende pelo nome.</h2></div><p>Uma estrutura construída para unir permanência, responsabilidade técnica e proximidade no dia a dia.</p></div><div class="reason-rail">
@@ -106,7 +106,7 @@ ${footer}<a class="whatsapp" href="${whatsapp}" target="_blank" rel="noopener" a
 
 const medicalFaqs = [
   ['Médico precisa ter CNPJ?','Não necessariamente. A decisão depende da receita, despesas, fontes pagadoras e forma de atuação. A análise compara os dois cenários.'],
-  ['Quando vale a pena abrir uma empresa?','Quando a simulação completa — incluindo pró-labore, Fator R, custos e obrigações — mostra vantagem e adequação para a rotina do médico.'],
+  ['Quando vale a pena abrir uma empresa?','Quando a simulação completa, incluindo pró-labore, Fator R, custos e obrigações, mostra vantagem e adequação para a rotina do médico.'],
   ['Vocês organizam o carnê-leão e o Livro Caixa?','Sim. As receitas são conciliadas mensalmente e as despesas dedutíveis são classificadas ao longo do ano.'],
   ['Atendem fora do horário comercial?','Sim. Para quem faz plantão ou não consegue comparecer em horário normal, outros horários podem ser agendados.'],
   ['Atendem clínicas e consultórios?','Sim. A estrutura apresentada atende médicos autônomos, consultórios e clínicas, conforme o diagnóstico de cada operação.']
@@ -146,7 +146,7 @@ ${header(true)}
 
   <section class="contact med-contact"><div class="contact-copy reveal"><div class="eyebrow light">O PRÓXIMO ABRIL COMEÇA AGORA</div><h2>Pare de esperar a declaração para descobrir se sua estrutura está certa.</h2><p>Converse com a José Paulino Contabilidade e compare PF e PJ com os seus números.</p></div><div class="contact-cta reveal"><a class="btn light-btn" href="${whatsapp}" target="_blank" rel="noopener">Quero comparar meu cenário ${arrow}</a><p><strong>Retorno em até 1 dia útil.</strong><br>Outros horários podem ser agendados.</p></div></section>
 </main>
-${footer}<a class="whatsapp medical-whatsapp" href="${whatsapp}" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><span>◔</span><b>Falar conosco</b></a><a class="campaign-mobile-cta" href="${whatsapp}" target="_blank" rel="noopener">Comparar meu cenário ${arrow}</a>`
+${footer}<a class="whatsapp medical-whatsapp" href="${whatsapp}" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><span>◔</span><b>Falar conosco</b></a><a class="campaign-mobile-cta is-hidden" href="${whatsapp}" target="_blank" rel="noopener">Comparar meu cenário ${arrow}</a>`
 
 export function initSite() {
   const controller = new AbortController()
@@ -177,6 +177,21 @@ export function initSite() {
     ? new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.08})
     : null
   document.querySelectorAll('.reveal').forEach(el=>observer ? observer.observe(el) : el.classList.add('visible'))
+  const floatingCampaignCta = document.querySelector('.campaign-mobile-cta')
+  let campaignCtaObserver = null
+  if (floatingCampaignCta && 'IntersectionObserver' in window) {
+    const visibleCtas = new Set()
+    const inlineCtas = document.querySelectorAll(`.medical-page a[href^="${whatsapp}"]`)
+    const syncFloatingCta = () => floatingCampaignCta.classList.toggle('is-hidden', visibleCtas.size > 0)
+    campaignCtaObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => entry.isIntersecting ? visibleCtas.add(entry.target) : visibleCtas.delete(entry.target))
+      syncFloatingCta()
+    }, { threshold: .2, rootMargin: '-6% 0px -6% 0px' })
+    inlineCtas.forEach(cta => campaignCtaObserver.observe(cta))
+    if (!inlineCtas.length) floatingCampaignCta.classList.remove('is-hidden')
+  } else {
+    floatingCampaignCta?.classList.remove('is-hidden')
+  }
   const isMedical = Boolean(document.querySelector('.medical-page'))
   const campaign = new URLSearchParams(location.search)
   const source = campaign.get('utm_source') || ''
@@ -203,6 +218,7 @@ export function initSite() {
   return () => {
     controller.abort()
     observer?.disconnect()
+    campaignCtaObserver?.disconnect()
     closeMenu()
   }
 }
