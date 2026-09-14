@@ -12,17 +12,17 @@ export const viewport = {
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: 'Contabilidade JP | Bragança Paulista',
-  description: 'Contabilidade em Bragança Paulista para empresas, produtores rurais e profissionais liberais. Diagnóstico, clareza e acompanhamento desde 1928.',
+  description: 'Contabilidade em Bragança Paulista para empresas, produtores rurais e profissionais liberais. Diagnóstico, clareza e acompanhamento desde 1950.',
   alternates: { canonical: '/' },
   openGraph: {
     title: 'Contabilidade JP | José Paulino Contabilidade',
-    description: 'Diagnóstico e acompanhamento contábil para empresas, produtores rurais e profissionais liberais. Desde 1928.',
+    description: 'Diagnóstico e acompanhamento contábil para empresas, produtores rurais e profissionais liberais. Desde 1950.',
     type: 'website',
     url: '/',
     locale: 'pt_BR',
     siteName,
   },
-  twitter: { card: 'summary', title: 'Contabilidade JP | Desde 1928', description: 'Diagnóstico, clareza e acompanhamento contábil em Bragança Paulista.' },
+  twitter: { card: 'summary', title: 'Contabilidade JP | Desde 1950', description: 'Diagnóstico, clareza e acompanhamento contábil em Bragança Paulista.' },
   robots: { index: true, follow: true },
   icons: {
     icon: [{ url: '/favicon.png', type: 'image/png', sizes: '192x192' }],
@@ -49,9 +49,9 @@ export default function RootLayout({ children }) {
               '@type': ['AccountingService', 'LocalBusiness'],
               name: 'Escritório Contábil José Paulino Ltda',
               description: 'Diagnóstico e acompanhamento contábil para empresas, produtores rurais e profissionais liberais.',
-              foundingDate: '1928',
+              foundingDate: '1950',
               url: siteUrl,
-              logo: `${siteUrl}/logo-jose-paulino-dark.webp`,
+              logo: `${siteUrl}/logo-jose-paulino-no-date.webp`,
               telephone: '+55 11 4033-1066',
               email: 'contabilidade@escritoriojosepaulino.com.br',
               address: {

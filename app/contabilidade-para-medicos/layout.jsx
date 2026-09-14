@@ -33,7 +33,7 @@ export default function MedicalLayout({ children }) {
               '@type': 'AccountingService',
               name: 'Escritório Contábil José Paulino Ltda',
               telephone: '+55 11 4033-1066',
-              foundingDate: '1928',
+              foundingDate: '1950',
             },
           }),
         }}

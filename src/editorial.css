@@ -93,9 +93,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 }
 .hero-diagnostic .hero-copy { padding: 0; max-width: none; }
 .hero-diagnostic .hero-copy h1 {
-  font: 500 clamp(62px,6.15vw,96px)/1.02 var(--serif);
+  font: 500 clamp(54px,4.8vw,76px)/1.025 var(--serif);
   letter-spacing: -.035em;
-  max-width: none;
+  max-width: 780px;
 }
 .hero-diagnostic h1 em { color: #c5262d; font-style: italic; }
 .hero-diagnostic .hero-copy > p {
@@ -129,17 +129,18 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   display: block;
   flex: 0 0 var(--emblem-width);
   width: var(--emblem-width);
-  height: calc(var(--emblem-width) * .71);
+  height: calc(var(--emblem-width) * .94);
   overflow: hidden;
   filter: drop-shadow(0 15px 22px rgba(0,0,0,.5));
+  transform: translateY(clamp(14px,1.7vw,28px));
 }
 .jp-emblem img {
   position: absolute;
-  max-width: none;
-  width: 310%;
-  height: auto;
-  left: -20.5%;
-  top: -18.5%;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 .heritage-identity .heritage-year {
   position: relative;
@@ -213,6 +214,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 .section-intro > p, .service-card p { font: 400 16px/1.75 var(--sans); }
 .service-card { grid-template-columns: 48px minmax(210px,.9fr) 1.25fr 86px; gap: 28px; padding: 28px 0; }
 .service-card h3 { font: 500 clamp(24px,2.1vw,31px)/1.15 var(--serif); }
+.service-card .service-benefit { color: #4f4944; font-weight: 500; }
 .service-card .card-top > span, .service-card small { font: 500 12px/1.5 var(--sans); letter-spacing: .6px; }
 .rural-feature { background: #3b1516; grid-template-columns: .34fr 1.2fr .46fr; gap: 5vw; }
 .rural-feature::before { background: radial-gradient(ellipse at 0 50%,#62191b60,transparent 65%); }
@@ -309,7 +311,7 @@ footer { background: #10100f; padding: 72px var(--pad) 32px; }
   .nav-open .menu span:first-child { transform: translateY(4.5px) rotate(45deg); }
   .nav-open .menu span:last-child { transform: translateY(-4.5px) rotate(-45deg); }
   .hero.hero-diagnostic { padding-top: 128px; gap: 42px 30px; }
-  .hero-diagnostic .hero-copy h1 { font-size: clamp(55px,6.2vw,76px); }
+  .hero-diagnostic .hero-copy h1 { font-size: clamp(50px,5.8vw,68px); }
   .heritage-identity { gap: 15px; }
   .heritage-identity .heritage-year { padding-left: 15px; }
   .jp-emblem { --emblem-width: clamp(120px,15.5vw,180px); }
@@ -322,7 +324,7 @@ footer { background: #10100f; padding: 72px var(--pad) 32px; }
 @media (max-width: 820px) {
   .hero.hero-diagnostic { display: grid; grid-template-columns: 1fr; padding-top: 119px; gap: 30px; }
   .hero-diagnostic .hero-copy { padding: 0; order: 1; }
-  .hero-diagnostic .hero-copy h1 { font-size: clamp(55px,9vw,76px); }
+  .hero-diagnostic .hero-copy h1 { font-size: clamp(46px,7.4vw,62px); }
   .hero-diagnostic .hero-copy > p { max-width: 610px; }
   .hero-diagnostic .heritage-art { order: 2; height: auto; padding: 26px 0 22px; }
   .heritage-identity { max-width: 430px; gap: 26px; }
@@ -358,7 +360,7 @@ footer { background: #10100f; padding: 72px var(--pad) 32px; }
   .header nav, .header.scrolled nav { inset: 74px 0 0; height: calc(100dvh - 74px); }
   .hero.hero-diagnostic { padding-top: 107px; gap: 24px; }
   .eyebrow { font-size: 12px; letter-spacing: 1.5px; margin-bottom: 18px; }
-  .hero-diagnostic .hero-copy h1 { font-size: clamp(43px,12.2vw,66px); }
+  .hero-diagnostic .hero-copy h1 { font-size: clamp(40px,10.6vw,52px); }
   .hero-diagnostic .hero-copy > p { font-size: 16px; line-height: 1.75; margin: 23px 0 27px; }
   .hero-diagnostic .actions { gap: 9px; }
   .btn, .hero-diagnostic .btn-link { width: 100%; min-height: 52px; }
@@ -438,14 +440,16 @@ footer { background: #10100f; padding: 72px var(--pad) 32px; }
 .reason-rail article + article > span { left: clamp(24px,3.2vw,52px); }
 .reason-rail strong { display: block; color: #e4d6c4; font: 500 clamp(37px,3.8vw,58px)/1 var(--serif); letter-spacing: -.035em; }
 .reason-rail p { max-width: 300px; margin: 17px 0 0; color: #938b81; font-size: 14px; line-height: 1.6; }
+.reason-rail small,.reason-principles small { display: block; margin-top: 10px; color: #c4ad86; font: 500 11px/1.55 var(--sans); letter-spacing: .45px; }
 .reason-principles { display: grid; grid-template-columns: repeat(3,1fr); }
 .reason-principles article { padding: 28px clamp(24px,3.2vw,52px) 0 0; }
 .reason-principles article + article { padding-left: clamp(24px,3.2vw,52px); }
 .reason-principles span { display: block; color: #c9b895; font: 500 18px/1.3 var(--serif); }
 .reason-principles p { margin: 8px 0 0; color: #827b73; font-size: 13px; line-height: 1.6; }
+.reason-principles small { margin-top: 7px; color: #9d8e76; }
 
 .campaign-photo { position: absolute; inset: 92px 43% 0 0; width: auto; height: auto; margin: 0; overflow: hidden; border: 0; box-shadow: none; }
-.campaign-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg,rgba(14,14,13,.12) 0%,transparent 45%,#11110f 100%),linear-gradient(0deg,#11110f 0%,transparent 30%),linear-gradient(180deg,rgba(17,17,15,.18),transparent 22%); pointer-events: none; }
+.campaign-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg,rgba(14,14,13,.12) 0%,transparent 38%,#11110f 88%,#11110f 100%),linear-gradient(0deg,#11110f 0%,transparent 30%),linear-gradient(180deg,rgba(17,17,15,.18),transparent 22%); pointer-events: none; }
 .campaign-photo img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: 48% center; filter: saturate(.78) contrast(1.04) brightness(.88); }
 .campaign-photo figcaption { position: absolute; z-index: 2; left: var(--pad); right: 8vw; bottom: 30px; display: flex; justify-content: space-between; align-items: end; gap: 24px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.25); color: #fff; }
 .campaign-photo figcaption span { color: #ceb98f; font: 500 10px/1.5 var(--sans); letter-spacing: 2px; }
@@ -521,9 +525,7 @@ footer { background: #10100f; padding: 72px var(--pad) 32px; }
   position: absolute;
   inset: 0;
   z-index: -1;
-  background:
-    radial-gradient(circle at 79% 43%,rgba(255,255,255,.035),transparent 27%),
-    linear-gradient(112deg,#11110f 0%,#151513 60%,#0d0d0c 100%);
+  background: #11110f;
 }
 .campaign-hero::after {
   content: "";
@@ -635,7 +637,7 @@ footer { background: #10100f; padding: 72px var(--pad) 32px; }
 @media (max-width: 560px) {
   .campaign-header .header-brand { width: min(206px,53vw); }
   .campaign-header .desktop-cta { display: inline-flex; width: auto; min-height: 42px; padding: 0 13px; font-size: 0; }
-  .campaign-header .desktop-cta::before { content: "WhatsApp"; font-size: 10px; }
+  .campaign-header .desktop-cta::before { content: "Diagnóstico"; font-size: 10px; }
   .campaign-header .desktop-cta svg { width: 15px; }
   .campaign-hero { padding: 111px 22px 58px; }
   .campaign-hero h1 { font-size: clamp(43px,12.2vw,60px); }

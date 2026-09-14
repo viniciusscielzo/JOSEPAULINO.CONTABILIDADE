@@ -11,7 +11,7 @@ export default function PrivacyPolicy() {
   return (
     <main className="privacy-page">
       <header className="privacy-header">
-        <a href="/" aria-label="Voltar ao início"><img src="/logo-jose-paulino-dark.webp" alt="JP | José Paulino Contabilidade | Desde 1928" width="900" height="301" /></a>
+        <a href="/" aria-label="Voltar ao início"><img src="/logo-jose-paulino-no-date.webp" alt="JP | José Paulino Contabilidade" width="1600" height="559" /></a>
         <a href="/">Voltar ao site</a>
       </header>
       <article>
