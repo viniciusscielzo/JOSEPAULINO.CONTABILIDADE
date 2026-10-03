@@ -113,7 +113,7 @@ body { font-size: 16px; }
   min-height: 132px;
   border-top: 1px solid rgba(255,255,255,.15);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 .proof-strip span { padding: 34px 2vw; border-right: 1px solid rgba(255,255,255,.12); font-size: 13px; line-height: 1.6; color: #858585; }
 .proof-strip span:first-child { padding-left: 0; }
@@ -285,7 +285,7 @@ body { font-size: 16px; }
 .contact-cta p { font-size: 14px; line-height: 1.8; color: #69635e; margin: 25px 0 0; }
 
 @media (max-width: 1050px) {
-  .proof-strip { grid-template-columns: repeat(2,1fr); position: relative; left: auto; right: auto; bottom: auto; margin-top: 0; }
+  .proof-strip { grid-template-columns: repeat(3,1fr); position: relative; left: auto; right: auto; bottom: auto; margin-top: 0; }
   .proof-strip span { padding: 20px; border-bottom: 1px solid rgba(255,255,255,.12); }
   .hero-diagnostic { min-height: 0; padding-bottom: 0; }
   .hero-diagnostic .hero-copy { padding-bottom: 55px; }
@@ -311,7 +311,7 @@ body { font-size: 16px; }
   .heritage-year { right: 0; top: 14%; }
   .heritage-year strong { font-size: clamp(96px, 29vw, 150px); }
   .heritage-note { left: 0; bottom: 10%; }
-  .proof-strip { order: 3; grid-template-columns: 1fr 1fr; width: 100%; }
+  .proof-strip { order: 3; grid-template-columns: repeat(3,1fr); width: 100%; }
   .proof-strip span:first-child { padding-left: 20px; }
   .principals { padding: 85px 23px; gap: 55px; }
   .medical-entry { padding: 85px 23px; }

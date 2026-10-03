@@ -176,7 +176,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   inset: auto;
   min-height: 108px;
   grid-column: 1 / -1;
-  grid-template-columns: repeat(4,minmax(0,1fr));
+  grid-template-columns: repeat(3,minmax(0,1fr));
   width: 100%;
   border-top: 1px solid rgba(187,167,129,.22);
 }
@@ -333,10 +333,9 @@ footer { background: #10100f; padding: 72px var(--pad) 32px; }
   .heritage-identity .heritage-year strong { font-size: 100px; }
   .heritage-caption { font-size: 25px; margin-top: 24px; }
   .heritage-art .heritage-note { margin-top: 24px; width: 100%; max-width: 430px; }
-  .hero-diagnostic .proof-strip { grid-template-columns: 1fr 1fr; order: 3; }
+  .hero-diagnostic .proof-strip { grid-template-columns: repeat(3,minmax(0,1fr)); order: 3; }
   .hero-diagnostic .proof-strip span { padding: 23px !important; }
-  .hero-diagnostic .proof-strip span:nth-child(odd) { padding-left: 0 !important; }
-  .hero-diagnostic .proof-strip span:nth-child(2) { border-right: 0; }
+  .hero-diagnostic .proof-strip span:first-child { padding-left: 0 !important; }
   .principals, .medical-entry, .rural-feature, .med-solutions, .med-proof, .section-intro { grid-template-columns: 1fr; gap: 38px; }
   .medical-entry-visual { border-left: 0; padding: 32px 0 0; }
   .med-number { font-size: 90px; }
@@ -372,7 +371,11 @@ footer { background: #10100f; padding: 72px var(--pad) 32px; }
   .heritage-identity .heritage-year > span { font-size: 12px; letter-spacing: 3px; }
   .heritage-caption { font-size: 23px; margin-top: 23px; }
   .heritage-art .heritage-note { margin-top: 22px; padding-top: 16px; letter-spacing: .4px; }
-  .hero-diagnostic .proof-strip span { padding: 20px 0 20px 18px !important; }
+  .hero-diagnostic .proof-strip { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .hero-diagnostic .proof-strip span { min-width: 0; padding: 20px 0 !important; }
+  .hero-diagnostic .proof-strip span:first-child { grid-column: 1 / -1; padding-left: 0 !important; border-right: 0; border-bottom: 1px solid rgba(187,167,129,.13); text-align: center; }
+  .hero-diagnostic .proof-strip span:nth-child(2) { padding-right: 16px !important; }
+  .hero-diagnostic .proof-strip span:nth-child(3) { padding-left: 18px !important; }
   .proof-strip b { font-size: 23px; }
   .section, .principals, .medical-entry, .rural-feature, .med-solutions, .med-proof, .contact { padding-block: 68px; }
   .section h2, .principals h2, .medical-entry h2, .rural-feature h2, .med-solutions h2, .med-proof h2, .faq .section-heading h2, .contact h2 { font-size: clamp(38px,10.5vw,48px); }
@@ -432,7 +435,7 @@ footer { background: #10100f; padding: 72px var(--pad) 32px; }
 .reasons-heading { display: grid; grid-template-columns: minmax(0,1.35fr) minmax(250px,.65fr); gap: 9vw; align-items: end; margin-bottom: 62px; }
 .reasons-heading h2 { max-width: 760px; }
 .reasons-heading > p { max-width: 410px; margin: 0 0 7px; color: #8f887e; font-size: 15px; line-height: 1.8; }
-.reason-rail { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid #51483d; border-bottom: 1px solid #51483d; }
+.reason-rail { display: grid; grid-template-columns: repeat(2,1fr); border-top: 1px solid #51483d; border-bottom: 1px solid #51483d; }
 .reason-rail article { position: relative; min-height: 258px; padding: 35px clamp(24px,3.2vw,52px) 34px 0; border-right: 1px solid #51483d; display: flex; flex-direction: column; justify-content: flex-end; }
 .reason-rail article + article { padding-left: clamp(24px,3.2vw,52px); }
 .reason-rail article:last-child { border-right: 0; }
@@ -563,7 +566,7 @@ footer { background: #10100f; padding: 72px var(--pad) 32px; }
 .medical-trust-strip {
   padding: 0 var(--pad);
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(3,1fr);
   background: #f1ede7;
   border-bottom: 1px solid #d5cdc4;
 }
@@ -617,9 +620,7 @@ footer { background: #10100f; padding: 72px var(--pad) 32px; }
 @media (max-width: 980px) {
   .campaign-hero { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 24px; }
   .campaign-visual small { bottom: -4%; }
-  .medical-trust-strip { grid-template-columns: 1fr 1fr; }
-  .medical-trust-strip article:nth-child(2) { border-right: 0; }
-  .medical-trust-strip article:nth-child(-n+2) { border-bottom: 1px solid #d5cdc4; }
+  .medical-trust-strip { grid-template-columns: repeat(3,1fr); }
   .audience-heading { grid-template-columns: 1fr; gap: 18px; }
 }
 
@@ -647,8 +648,10 @@ footer { background: #10100f; padding: 72px var(--pad) 32px; }
   .campaign-visual i { font-size: 22px; }
   .campaign-visual small { bottom: -7%; font-size: 9px; }
   .medical-trust-strip { padding: 0 22px; }
-  .medical-trust-strip article { padding: 23px 12px 23px 0; }
-  .medical-trust-strip article:nth-child(even) { padding-left: 15px; }
+  .medical-trust-strip { grid-template-columns: 1fr; }
+  .medical-trust-strip article,
+  .medical-trust-strip article:nth-child(even) { padding: 23px 0; border-right: 0; border-bottom: 1px solid #d5cdc4; }
+  .medical-trust-strip article:last-child { border-bottom: 0; }
   .medical-trust-strip strong { font-size: 20px; }
   .medical-trust-strip span { font-size: 11px; line-height: 1.45; }
   .text-cta { font-size: 12px; line-height: 1.6; }
