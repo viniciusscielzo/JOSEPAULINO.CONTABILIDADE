@@ -52,13 +52,13 @@ ${header()}
       <p class="heritage-caption">Três gerações.<br><em>A mesma responsabilidade.</em></p>
       <div class="heritage-note">Bragança Paulista · São Paulo</div>
     </div>
-    <div class="proof-strip"><span><b>Desde 1950</b> três gerações</span><span><b>250 clientes</b> atendidos</span><span><b>8 profissionais</b> equipe própria</span><span><b>1 dia útil</b> prazo de retorno</span></div>
+    <div class="proof-strip"><span><b>Desde 1950</b> três gerações</span><span><b>8 profissionais</b> equipe própria</span><span><b>1 dia útil</b> prazo de retorno</span></div>
   </section>
 
   <section class="section about heritage" id="sobre">
     <div class="about-mark">1950</div>
     <div class="section-heading reveal"><div class="eyebrow">QUEM SOMOS</div><h2>Três gerações na <em>mesma cidade.</em></h2></div>
-    <div class="about-copy reveal"><p>Desde 1950, o Escritório José Paulino faz parte da história empresarial de Bragança Paulista. Ao longo de três gerações, a tradição ganhou novos processos, novas especialidades e a mesma responsabilidade pelo trabalho entregue.</p><p>Hoje a responsabilidade técnica está com <strong>André Nogueira Leme</strong> e <strong>Antonio Fernando Leme</strong>, à frente de uma equipe própria de 8 profissionais que atende 250 clientes entre empresas, produtores rurais e profissionais liberais.</p><p class="about-closing">Quem nos procura encontra atendimento direto, memória sobre cada caso e profissionais que respondem pelo que fazem.</p></div>
+    <div class="about-copy reveal"><p>Desde 1950, o Escritório José Paulino faz parte da história empresarial de Bragança Paulista. Ao longo de três gerações, a tradição ganhou novos processos, novas especialidades e a mesma responsabilidade pelo trabalho entregue.</p><p>Hoje a responsabilidade técnica está com <strong>André Nogueira Leme</strong> e <strong>Antonio Fernando Leme</strong>, à frente de uma equipe própria de 8 profissionais que atende empresas, produtores rurais e profissionais liberais.</p><p class="about-closing">Quem nos procura encontra atendimento direto, memória sobre cada caso e profissionais que respondem pelo que fazem.</p></div>
     <blockquote class="about-wide-quote reveal">Antes de assumir sua contabilidade, entendemos o que precisa ser organizado.</blockquote>
   </section>
 
@@ -94,7 +94,7 @@ ${header()}
   </div></section>
 
   <section class="section reasons"><div class="reasons-heading reveal"><div><div class="eyebrow">POR QUE NOS ESCOLHEM</div><h2>Tradição que ainda atende pelo nome.</h2></div><p>Uma estrutura construída para unir permanência, responsabilidade técnica e proximidade no dia a dia.</p></div><div class="reason-rail">
-    <article class="reveal"><span>01</span><strong>Desde 1950</strong><p>Três gerações em Bragança Paulista</p><small>Estabilidade que não desaparece</small></article><article class="reveal"><span>02</span><strong>250 clientes</strong><p>Empresas, rurais e liberais</p><small>Especialização comprovada</small></article><article class="reveal"><span>03</span><strong>1 dia útil</strong><p>Prazo de resposta</p><small>Você não fica esperando</small></article>
+    <article class="reveal"><span>01</span><strong>Desde 1950</strong><p>Três gerações em Bragança Paulista</p><small>Estabilidade que não desaparece</small></article><article class="reveal"><span>02</span><strong>1 dia útil</strong><p>Prazo de resposta</p><small>Você não fica esperando</small></article>
   </div><div class="reason-principles"><article class="reveal"><span>Equipe própria</span><p>8 profissionais, sem terceirização</p><small>Controle total do seu trabalho</small></article><article class="reveal"><span>Sócio no atendimento</span><p>Você fala com quem assina</p><small>Decisão na hora</small></article><article class="reveal"><span>Especialização real</span><p>Rural e Saúde na rotina</p><small>Contabilidade feita para você</small></article></div></section>
 
   <section class="section faq" id="faq"><div class="section-heading reveal"><div class="eyebrow">DÚVIDAS FREQUENTES</div><h2>Respostas diretas, desde o <em>primeiro contato.</em></h2></div><div class="accordion reveal">${faqs.map((f,i)=>`<article class="faq-item ${i===0?'open':''}"><button aria-expanded="${i===0}"><span>${f[0]}</span><b></b></button><div class="answer"><p>${f[1]}</p></div></article>`).join('')}</div></section>
@@ -121,7 +121,7 @@ ${header(true)}
     <div class="med-hero-copy reveal"><div class="eyebrow light">CONTABILIDADE PARA MÉDICOS</div><h1>Seu imposto não deveria ser uma surpresa em <em>abril.</em></h1><p>Plantões, cooperativas, consultório e convênios geram receitas em lugares diferentes. Organizamos o ano e colocamos PF e PJ lado a lado para você decidir com números.</p><div class="actions"><a class="btn campaign-primary" href="${whatsapp}" target="_blank" rel="noopener">Faça um diagnóstico gratuito ${arrow}</a><a class="btn-link" href="#diagnostico">Ver o que analisamos <span>↓</span></a></div><div class="campaign-assurance">Diagnóstico com seus números. Não com opinião.</div></div>
   </section>
 
-  <section class="medical-trust-strip" aria-label="Informações do escritório"><article><strong>Desde 1950</strong><span>tradição em Bragança Paulista</span></article><article><strong>250 clientes</strong><span>em diferentes atividades</span></article><article><strong>1 dia útil</strong><span>prazo de retorno</span></article><article><strong>Horário agendado</strong><span>inclusive fora do expediente</span></article></section>
+  <section class="medical-trust-strip" aria-label="Informações do escritório"><article><strong>Desde 1950</strong><span>tradição em Bragança Paulista</span></article><article><strong>1 dia útil</strong><span>prazo de retorno</span></article><article><strong>Horário agendado</strong><span>inclusive fora do expediente</span></article></section>
 
   <section class="section med-problem"><div class="section-heading reveal"><div class="eyebrow">O PROBLEMA COMEÇA ANTES DO IMPOSTO</div><h2>A renda entra de quatro lugares. A visão do todo não vem de <em>nenhum.</em></h2></div><div class="about-copy reveal"><p>Plantão em hospital, repasse de cooperativa, atendimento no consultório, convênio que paga com atraso. Cada fonte chega de um jeito e em uma data.</p><p>Quando ninguém concilia essas informações durante o ano, o carnê-leão é feito às pressas, despesas dedutíveis ficam de fora e abril vira uma surpresa evitável.</p><p class="campaign-question">A pergunta certa não é “todo médico precisa de PJ?”. É: <strong>qual estrutura faz sentido para os seus números?</strong></p><a class="text-cta" href="${whatsapp}" target="_blank" rel="noopener">Faça um diagnóstico gratuito ${arrow}</a></div></section>
 
