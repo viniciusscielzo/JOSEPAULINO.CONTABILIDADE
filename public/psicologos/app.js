@@ -1,4 +1,5 @@
 const WHATSAPP_NUMBER = '5511912063065';
+document.documentElement.classList.add('has-js');
 const MEASUREMENT = { GA4: '', ADS: '', ADS_LABEL: '', PIXEL: '' };
 let measurementLoaded = false;
 
@@ -68,17 +69,27 @@ const mobileCta = document.querySelector('.js-mobile-cta');
 
 if (mobileCta && 'IntersectionObserver' in window) {
   const visibleCtas = new Set();
+  const updateMobileCta = () => {
+    const calculator = document.querySelector('#calculadora');
+    const passedCalculator = calculator && calculator.getBoundingClientRect().bottom < window.innerHeight * .35;
+    mobileCta.textContent = passedCalculator ? 'SOLICITAR DIAGNÓSTICO GRATUITO' : 'FAZER MINHA CONTA';
+    mobileCta.href = passedCalculator ? '#diagnostico' : '#calculadora';
+    const visible = window.scrollY > 520 && visibleCtas.size === 0 && window.matchMedia('(max-width: 640px)').matches;
+    mobileCta.classList.toggle('is-visible', visible);
+    mobileCta.tabIndex = visible ? 0 : -1;
+    mobileCta.setAttribute('aria-hidden', String(!visible));
+  };
   const ctaObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) visibleCtas.add(entry.target);
       else visibleCtas.delete(entry.target);
     });
-    mobileCta.classList.toggle('is-visible', window.scrollY > 520 && visibleCtas.size === 0);
+    updateMobileCta();
   }, { threshold: 0.2 });
   primaryCtas.forEach((cta) => ctaObserver.observe(cta));
-  window.addEventListener('scroll', () => {
-    mobileCta.classList.toggle('is-visible', window.scrollY > 520 && visibleCtas.size === 0);
-  }, { passive: true });
+  window.addEventListener('scroll', updateMobileCta, { passive: true });
+  window.addEventListener('resize', updateMobileCta);
+  updateMobileCta();
 }
 
 const toast = document.querySelector('.toast');
@@ -96,24 +107,31 @@ if (form) {
     const data = new FormData(form);
     const name = String(data.get('nome') || '').trim();
     const email = String(data.get('email') || '').trim();
-    const phone = String(data.get('telefone') || '').trim();
     const consent = data.get('consentimento');
 
-    if (!name || !email || !phone || !consent) {
+    if (!name || !email || !consent) {
       toast.textContent = 'Preencha seus dados e confirme o consentimento para continuar.';
       showToast();
       return;
     }
+    if (!form.elements.email.validity.valid) {
+      toast.textContent = 'Confira seu e-mail antes de continuar.';
+      form.elements.email.focus();
+      showToast();
+      return;
+    }
 
-    const message = `Olá! Quero receber o guia gratuito Consultório no CPF. Meu nome é ${name}, meu e-mail é ${email} e meu WhatsApp é ${phone}.`;
+    const message = `Olá! Quero receber o guia gratuito Consultório no CPF. Meu nome é ${name} e meu e-mail é ${email}.`;
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
   });
 }
 
 const money = (value) => `R$ ${Math.round(value).toLocaleString('pt-BR')}`;
 const numberFrom = (id) => {
-  const raw = String(document.getElementById(id)?.value || '').replace(/\./g, '').replace(',', '.');
-  const value = Number.parseFloat(raw);
+  let raw = String(document.getElementById(id)?.value || '').trim().replace(/\s/g, '');
+  if (raw.includes(',')) raw = raw.replace(/\./g, '').replace(',', '.');
+  else if (/^\d{1,3}(\.\d{3})+$/.test(raw)) raw = raw.replace(/\./g, '');
+  const value = Number(raw);
   return Number.isFinite(value) && value > 0 ? value : 0;
 };
 
@@ -181,6 +199,13 @@ function updateCalculator() {
   document.getElementById('r-sessao').textContent = money(sessionValue);
   if (!monthlyRevenue || !sessionsPerYear) {
     document.getElementById('r-fica').textContent = '—';
+    document.getElementById('r-hundred').textContent = '—';
+    document.getElementById('r-cpf-ano').textContent = '—';
+    document.getElementById('r-org-ano').textContent = '—';
+    document.getElementById('b-cpf').style.width = '0';
+    document.getElementById('b-org').style.width = '0';
+    document.getElementById('r-delta').textContent = 'Preencha o valor médio da sessão, o número de sessões e as semanas trabalhadas para comparar os cenários.';
+    document.getElementById('r-2027').textContent = 'A análise para 2027 aparece quando você informar o faturamento.';
     return;
   }
 
@@ -190,34 +215,31 @@ function updateCalculator() {
   const businessAnnual = businessTax === null ? null : (monthlyRevenue - monthlyExpenses - businessTax) * 12;
   const perSession = individualAnnual / sessionsPerYear;
 
-  document.getElementById('r-fica').textContent = money(Math.max(0, perSession));
+  document.getElementById('r-fica').textContent = money(perSession);
+  document.getElementById('r-hundred').textContent = money(perSession / sessionValue * 100);
   document.getElementById('r-cpf-ano').textContent = `${money(individualAnnual)}/ano`;
   document.getElementById('r-org-ano').textContent = businessAnnual === null ? 'acima do limite' : `${money(businessAnnual)}/ano`;
 
   const scale = Math.max(individualAnnual, businessAnnual || 0, 1);
-  document.getElementById('b-cpf').style.width = `${Math.max(4, individualAnnual / scale * 100)}%`;
-  document.getElementById('b-org').style.width = `${Math.max(4, (businessAnnual || 0) / scale * 100)}%`;
+  document.getElementById('b-cpf').style.width = `${Math.max(0, individualAnnual / scale * 100)}%`;
+  document.getElementById('b-org').style.width = `${Math.max(0, (businessAnnual || 0) / scale * 100)}%`;
 
   const delta = document.getElementById('r-delta');
   const difference = businessAnnual === null ? 0 : businessAnnual - individualAnnual;
-  let whatsappText;
   if (businessAnnual === null) {
     delta.textContent = 'Seu faturamento ultrapassa o limite da estrutura simplificada. Esse cenário precisa de análise individual.';
-    whatsappText = 'Olá! Fiz a conta na calculadora para psicólogos e meu faturamento ultrapassou o limite. Quero um diagnóstico.';
+  } else if (individualAnnual < 0) {
+    delta.textContent = 'Nesta estimativa, as despesas e os tributos superam o faturamento no CPF. Vale revisar os valores e investigar seu cenário com o contador.';
   } else if (difference > 1200) {
-    delta.innerHTML = `Pela estimativa, uma estrutura organizada deixaria cerca de <strong>${money(difference)} a mais por ano</strong> com você, ou ${money(difference / sessionsPerYear)} por sessão.`;
-    whatsappText = `Olá! Fiz a conta na calculadora para psicólogos e a diferença estimada foi de ${money(difference)} por ano. Quero o diagnóstico do meu caso.`;
+    delta.innerHTML = `Com a mesma agenda, a estrutura empresarial simulada deixaria cerca de <strong>${money(difference)} a mais por ano</strong> com você, ou ${money(difference / sessionsPerYear)} por sessão. Confirme se essa diferença se aplica ao seu caso.`;
   } else {
-    delta.innerHTML = 'Pela estimativa, <strong>o CPF ainda é competitivo para você</strong>. O diagnóstico confirma como manter a rotina organizada.';
-    whatsappText = 'Olá! Fiz a conta na calculadora para psicólogos e o CPF ainda parece competitivo. Quero entender meu cenário.';
+    delta.innerHTML = 'Pela estimativa, <strong>o CPF ainda é competitivo para você.</strong> Não é preciso mudar de estrutura sem motivo. O diagnóstico ajuda a organizar a sua rotina.';
   }
 
   const annualRevenue = monthlyRevenue * 12;
-  document.getElementById('r-2027').innerHTML = annualRevenue > 40500
-    ? `<strong>Atenção para 2027:</strong> com ${money(annualRevenue)} por ano, seu cenário ultrapassa o limite de R$ 40,5 mil e merece uma análise das novas obrigações.`
-    : `Com ${money(annualRevenue)} por ano, você está abaixo do limite de R$ 40,5 mil considerado nesta estimativa.`;
-
-  document.getElementById('cta-calc').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappText)}`;
+  document.getElementById('r-2027').innerHTML = annualRevenue >= 40500
+    ? `<strong>Atenção para 2027:</strong> com ${money(annualRevenue)} por ano, seu faturamento é igual ou superior à referência de R$ 40,5 mil. Vale verificar se as novas obrigações se aplicam ao seu caso.`
+    : `Com ${money(annualRevenue)} por ano, você está abaixo da referência de R$ 40,5 mil. Confirme seu enquadramento com o contador.`;
 }
 
 ['sessao', 'semana', 'semanas', 'despesas'].forEach((id) => {
