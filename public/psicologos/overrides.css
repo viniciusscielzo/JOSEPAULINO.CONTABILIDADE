@@ -96,6 +96,29 @@ h1,h2,h1 em,h2 em {font-weight:500}
   white-space: nowrap;
 }
 
+/* Rotina fiscal: fotografia editorial, com os cartões integrados à cena. */
+.recognition__stage { padding-top:0; }
+.recognition__photo {
+  position:relative;width:90%;margin:0 auto;aspect-ratio:1.95/1;
+  overflow:hidden;border-radius:32px;background:#dce4df;
+  box-shadow:0 24px 65px rgba(37,50,69,.12);
+}
+.recognition__photo img {
+  display:block;width:100%;height:100%;object-fit:cover;object-position:50% 34%;
+}
+.recognition__cards {margin-top:-40px;}
+.recognition__cards article {background:rgba(255,255,255,.95);}
+@media(max-width:980px) {
+  .recognition__stage {padding-top:0}
+  .recognition__photo {width:100%;aspect-ratio:1.72/1;}
+  .recognition__cards {margin-top:-25px;}
+}
+@media(max-width:640px) {
+  .recognition__photo {aspect-ratio:4/3;border-radius:24px}
+  .recognition__photo img {object-position:63% 42%;}
+  .recognition__cards {margin-top:18px}
+}
+
 @media (max-width: 980px) {
   .hero__grid {
     padding-bottom: 90px;
