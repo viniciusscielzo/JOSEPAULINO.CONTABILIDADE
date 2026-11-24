@@ -21,5 +21,23 @@
         }
       ]
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/psicologos-original/politica-privacidade.html",
+      "destination": "/psicologos-original/politica-privacidade"
+    },
+    {
+      "source": "/psicologos-original/index.html",
+      "destination": "/psicologos-original"
+    },
+    {
+      "source": "/psicologos/politica-privacidade.html",
+      "destination": "/psicologos/politica-privacidade"
+    },
+    {
+      "source": "/psicologos/index.html",
+      "destination": "/psicologos"
+    }
   ]
 }
