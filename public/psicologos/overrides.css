@@ -44,6 +44,8 @@
 .hero__actions {gap:16px}
 .hero__actions .button {padding-inline:21px}
 .hero__actions .button span,.tax-transition__bottom .outline-button span {font-size:16px}
+.book__cover h2 {font-size:33px;letter-spacing:-1.4px}
+.float-card--pages {top:220px}
 .tax-transition {padding:120px 0 105px;background:linear-gradient(160deg,#eff3ee,#e0eae5);scroll-margin-top:20px}
 .tax-transition__heading {max-width:900px}
 .tax-transition__heading h2 {font-size:clamp(46px,5vw,72px);line-height:1.04;margin-bottom:26px}
@@ -132,6 +134,8 @@ html:not(.has-js) .reveal {opacity:1;transform:none}
   .hero__lead {font-size:16px}
   .hero__actions {gap:4px}
   .hero__micro span {font-size:10px}
+  .book__cover h2 {font-size:25px;letter-spacing:-1px}
+  .float-card--pages {top:180px}
   .tax-transition,.diagnosis {padding:75px 0}
   .tax-transition__heading h2 {font-size:40px}
   .tax-transition__heading>p:last-child,.diagnosis .section-title>p:last-child,.capture__copy>p:not(.eyebrow) {font-size:16px}
