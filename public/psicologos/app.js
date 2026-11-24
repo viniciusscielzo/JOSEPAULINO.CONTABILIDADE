@@ -1,5 +1,26 @@
 const WHATSAPP_NUMBER = '5511912063065';
 document.documentElement.classList.add('has-js');
+// Copy equal runs until each half exceeds the full visible ribbon width.
+const ribbon = document.querySelector('.ribbon');
+if (ribbon) {
+  const track = ribbon.querySelector('.ribbon__track');
+  const groups = [...ribbon.querySelectorAll('.ribbon__group')];
+  const fitRibbon = () => {
+    const sample = groups[0]?.firstElementChild;
+    const phraseWidth = sample?.offsetWidth || 0;
+    if (!phraseWidth || groups.length !== 2) return;
+    const count = Math.max(3, Math.ceil(ribbon.clientWidth / phraseWidth) + 2);
+    if (groups[0].children.length !== count) {
+      groups.forEach((group) => {
+        group.replaceChildren(...Array.from({ length: count }, () => sample.cloneNode(true)));
+      });
+    }
+    track.style.setProperty('--ticker-duration', `${Math.max(25, groups[0].offsetWidth / 42)}s`);
+  };
+  fitRibbon();
+  window.addEventListener('resize', fitRibbon);
+  document.fonts?.ready.then(fitRibbon);
+}
 const MEASUREMENT = { GA4: '', ADS: '', ADS_LABEL: '', PIXEL: '' };
 let measurementLoaded = false;
 

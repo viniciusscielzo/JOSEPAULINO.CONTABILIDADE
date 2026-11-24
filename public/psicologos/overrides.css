@@ -56,6 +56,26 @@ h1,h2,h1 em,h2 em {font-weight:500}
   margin: 0 -4%;
 }
 
+.ribbon > .ribbon__track {
+  display: flex;
+  width: max-content;
+  animation: ticker var(--ticker-duration, 45s) linear infinite;
+  will-change: transform;
+}
+.ribbon__group {
+  display: flex;
+  flex: 0 0 auto;
+  min-width: 116vw;
+  justify-content: space-around;
+  align-items: center;
+}
+.ribbon__phrase {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  white-space: nowrap;
+}
+
 @media (max-width: 980px) {
   .hero__grid {
     padding-bottom: 90px;
