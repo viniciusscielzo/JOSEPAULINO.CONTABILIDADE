@@ -6,7 +6,7 @@ const header = (medical = false) => `
   <a class="brand header-brand" href="/" aria-label="José Paulino Contabilidade, início"><img src="/logo-jose-paulino-no-date.webp" alt="JP | José Paulino Contabilidade" width="1600" height="559"></a>
   ${medical
     ? '<span class="campaign-context">Contabilidade para médicos</span>'
-    : '<nav id="nav" aria-label="Navegação principal"><a href="#sobre">O escritório</a><a href="#especialidades">Especialidades</a><a href="#como">Como trabalhamos</a><a href="/contabilidade-para-medicos/">Para médicos</a><a href="#contato">Contato</a></nav>'}
+    : '<nav id="nav" aria-label="Navegação principal"><a href="#sobre">O escritório</a><a href="#especialidades">Áreas de atuação</a><a href="#como">Como trabalhamos</a><div class="nav-specialties"><button type="button" class="nav-specialties-toggle" id="specialties-toggle" aria-expanded="false" aria-controls="specialties-dropdown">Especialidades <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button><div class="nav-specialties-dropdown" id="specialties-dropdown" hidden><a href="/contabilidade-para-medicos/">Para médicos <span aria-hidden="true">↗</span></a><a href="/psicologos/">Para psicólogos <span aria-hidden="true">↗</span></a></div></div><a href="#contato">Contato</a></nav>'}
   <a class="btn btn-small desktop-cta" href="${medical ? whatsapp : '#contato'}"${medical ? ' target="_blank" rel="noopener"' : ''}>${medical ? 'Faça um diagnóstico gratuito' : 'Agendar Diagnóstico Gratuito'} ${arrow}</a>
   ${medical ? '' : '<button class="menu" id="menu" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>'}
 </header>`
@@ -154,8 +154,18 @@ export function initSite() {
   const options = { signal: controller.signal }
   const headerEl = document.querySelector('#header')
   const menu = document.querySelector('#menu')
+  const nav = document.querySelector('#nav')
+  const specialtiesToggle = document.querySelector('#specialties-toggle')
+  const specialtiesDropdown = document.querySelector('#specialties-dropdown')
+  const specialties = specialtiesToggle?.closest('.nav-specialties')
+  const setSpecialties = open => {
+    specialtiesToggle?.setAttribute('aria-expanded', String(open))
+    if (specialtiesDropdown) specialtiesDropdown.hidden = !open
+    nav?.classList.toggle('specialties-open', open)
+  }
   const onScroll = () => headerEl?.classList.toggle('scrolled', scrollY > 30)
   const closeMenu = () => {
+    setSpecialties(false)
     document.body.classList.remove('nav-open')
     menu?.setAttribute('aria-expanded', 'false')
     menu?.setAttribute('aria-label', 'Abrir menu')
@@ -166,9 +176,26 @@ export function initSite() {
     const open = document.body.classList.toggle('nav-open')
     e.currentTarget.setAttribute('aria-expanded', open)
     e.currentTarget.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu')
+    if (!open) setSpecialties(false)
+  }, options)
+  specialtiesToggle?.addEventListener('click', () => {
+    setSpecialties(specialtiesToggle.getAttribute('aria-expanded') !== 'true')
+  }, options)
+  document.addEventListener('click', e => {
+    if (specialties && !specialties.contains(e.target)) setSpecialties(false)
   }, options)
   document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',closeMenu,options))
-  addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu() }, options)
+  addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return
+    if (specialtiesToggle?.getAttribute('aria-expanded') === 'true') {
+      setSpecialties(false)
+      specialtiesToggle.focus()
+    } else {
+      const wasOpen = document.body.classList.contains('nav-open')
+      closeMenu()
+      if (wasOpen) menu?.focus()
+    }
+  }, options)
   addEventListener('resize', () => { if (innerWidth > 1190) closeMenu() }, options)
   document.querySelectorAll('.faq-item button').forEach(btn=>btn.addEventListener('click',()=>{
     const item=btn.parentElement, open=item.classList.toggle('open')

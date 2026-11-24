@@ -76,9 +76,47 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 .header.scrolled { height: 78px; background: rgba(15,15,14,.97); }
 .header-brand { width: 257px; height: 82px; }
 .header-brand img { width: 100%; height: 100%; object-fit: contain; }
-.header nav { gap: clamp(16px,1.5vw,25px); font: 400 13px/1.4 var(--sans); }
+.header nav { align-items: center; gap: clamp(16px,1.5vw,25px); font: 400 13px/1.4 var(--sans); }
 .header nav a { white-space: nowrap; }
 .header .desktop-cta { display: inline-flex; font-size: 11px; padding: 14px 18px; min-height: 47px; }
+
+/* Especialidades com navegação por clique, teclado e toque. */
+.nav-specialties { position: relative; display: flex; align-items: center; }
+.nav-specialties-toggle {
+  display: inline-flex; align-items: center; gap: 6px; padding: 0;
+  border: 0; background: none; color: inherit; font: inherit; cursor: pointer; white-space: nowrap;
+  min-height: 30px;
+}
+.nav-specialties-toggle svg {
+  width: 14px; height: 14px; fill: none; stroke: #c9b797; stroke-width: 1.5;
+  stroke-linecap: round; stroke-linejoin: round; transition: transform .2s;
+}
+.nav-specialties-toggle[aria-expanded="true"] { color: #fff; }
+.nav-specialties-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+.nav-specialties-toggle:hover { color: #fff; }
+.nav-specialties-dropdown {
+  position: absolute; top: calc(100% + 13px); right: 0; min-width: 205px; z-index: 15;
+  padding: 6px; border: 1px solid rgba(187,167,129,.27); border-top: 2px solid #a51b23;
+  border-radius: 5px; background: #1b1917; box-shadow: 0 20px 40px rgba(0,0,0,.35);
+}
+.nav-specialties-dropdown[hidden] { display: none; }
+.header nav .nav-specialties-dropdown a {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: 14px 13px; color: #e7dfd4; font-size: 13px; line-height: 1.5; border-radius: 3px;
+}
+.header nav .nav-specialties-dropdown a+a { border-top: 1px solid rgba(187,167,129,.1); }
+.header nav .nav-specialties-dropdown a:hover, .header nav .nav-specialties-dropdown a:focus-visible { background: rgba(187,167,129,.09); color: #fff; }
+.header nav .nav-specialties-dropdown a::after { display: none; }
+.nav-specialties-dropdown a span { color: #bb9f75; font-size: 15px; }
+@media (max-width: 1190px) {
+  .nav-specialties { display: flex; flex-direction: column; align-items: center; width: min(100%, 340px); }
+  .nav-specialties-toggle { padding: 4px 10px; min-height: 44px; }
+  .nav-specialties-toggle svg { width: 18px; height: 18px; }
+  .nav-specialties-dropdown { position: static; width: min(100%, 270px); margin-top: 4px; padding: 4px; box-shadow: none; }
+  .header nav .nav-specialties-dropdown a { min-height: 48px; padding: 11px 15px; font-size: 16px; }
+  .header nav.specialties-open { justify-content: flex-start; padding-block: 36px max(30px, env(safe-area-inset-bottom)); gap: 21px; }
+}
+@media (prefers-reduced-motion: reduce) { .nav-specialties-toggle svg { transition: none; } }
 
 .hero.hero-diagnostic {
   min-height: 0;
