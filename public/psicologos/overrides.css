@@ -1,3 +1,47 @@
+/* Tipografia compartilhada com o site institucional. */
+@font-face {
+  font-family: 'JP Editorial';
+  src: url('/fonts/cormorant-500.woff') format('woff');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JP Editorial';
+  src: url('/fonts/cormorant-500-italic.woff') format('woff');
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: Inter;
+  src: url('/fonts/inter-400.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: Inter;
+  src: url('/fonts/inter-500.woff') format('woff');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: Inter;
+  src: url('/fonts/inter-600.woff') format('woff');
+  font-weight: 600;
+  font-display: swap;
+}
+:root {
+  --serif: 'JP Editorial', Georgia, serif;
+  --sans: Inter, Arial, sans-serif;
+}
+html {-webkit-text-size-adjust:100%;text-size-adjust:100%}
+button,input,textarea {font-family:var(--sans)}
+h1,h2,h1 em,h2 em {font-weight:500}
+.button,.header__cta,.hero__secondary,.outline-button,.text-link,.mobile-cta {font-weight:600}
+.eyebrow {font-weight:500;letter-spacing:2.2px}
+.brand__wordmark strong,.book__cover h2 {font-weight:600}
+
 /* Ajustes finais de leitura do hero. */
 .hero {
   min-height: 910px;
