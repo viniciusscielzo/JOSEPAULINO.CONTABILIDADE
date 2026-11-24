@@ -1,4 +1,10 @@
 {
+  "rewrites": [
+    {
+      "source": "/psicologos/politica-privacidade.html",
+      "destination": "/psicologos/politica-privacidade"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
