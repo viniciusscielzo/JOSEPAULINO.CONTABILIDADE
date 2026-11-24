@@ -100,11 +100,16 @@ h1,h2,h1 em,h2 em {font-weight:500}
 .recognition__stage { padding-top:0; }
 .recognition__photo {
   position:relative;width:90%;margin:0 auto;aspect-ratio:1.95/1;
-  overflow:hidden;border-radius:32px;background:#dce4df;
-  box-shadow:0 24px 65px rgba(37,50,69,.12);
+  overflow:hidden;background:var(--cream);
 }
 .recognition__photo img {
   display:block;width:100%;height:100%;object-fit:cover;object-position:50% 34%;
+}
+.recognition__photo::after {
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(90deg,var(--cream),transparent 6%,transparent 94%,var(--cream)),
+    linear-gradient(180deg,var(--cream),transparent 8%,transparent 83%,var(--cream));
 }
 .recognition__cards {margin-top:-40px;}
 .recognition__cards article {background:rgba(255,255,255,.95);}
@@ -114,7 +119,7 @@ h1,h2,h1 em,h2 em {font-weight:500}
   .recognition__cards {margin-top:-25px;}
 }
 @media(max-width:640px) {
-  .recognition__photo {aspect-ratio:4/3;border-radius:24px}
+  .recognition__photo {aspect-ratio:4/3}
   .recognition__photo img {object-position:63% 42%;}
   .recognition__cards {margin-top:18px}
 }
@@ -212,6 +217,19 @@ h1,h2,h1 em,h2 em {font-weight:500}
 .diagnosis__price>strong small {font:500 14px var(--sans)}
 .diagnosis__price p {font-size:12px;line-height:1.6;margin:0}
 .capture__copy>p:not(.eyebrow) {font-size:18px;color:#d5e1e3;max-width:580px;margin-bottom:0}
+.lead-form__top {
+  display:block;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid #e1e5e0;
+}
+.lead-form__top small {
+  color:#526a63;font-size:10px;letter-spacing:1.6px;
+}
+.lead-form__top strong {
+  margin-top:9px;font:400 clamp(26px,2.8vw,35px)/1.12 var(--serif);letter-spacing:-.035em;
+}
+.lead-form__top p {
+  margin:9px 0 0;color:#687371;font-size:12px;line-height:1.5;
+}
+.lead-form__top p span {margin:0 3px;color:#899d96}
 .lead-form .privacy {color:#5d6765;font-size:11px}
 .lead-form .privacy a {text-decoration:underline}
 .faq__closing {border-top:1px solid var(--line);margin-top:55px;padding-top:34px;display:flex;align-items:center;justify-content:space-between;gap:24px}
