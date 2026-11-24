@@ -1,0 +1,39 @@
+/* Ajustes finais de leitura do hero. */
+.hero {
+  min-height: 910px;
+}
+
+.hero__grid {
+  min-height: 822px;
+  padding-bottom: 42px;
+}
+
+.ribbon {
+  margin: 0 -4%;
+}
+
+@media (max-width: 980px) {
+  .hero__grid {
+    padding-bottom: 90px;
+  }
+
+  .ribbon {
+    margin: 0 -5%;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero__grid {
+    padding-bottom: 65px;
+  }
+
+  .hero__micro {
+    position: relative;
+    z-index: 10;
+    margin-bottom: 12px;
+  }
+
+  .ribbon {
+    margin: 0 -8%;
+  }
+}
