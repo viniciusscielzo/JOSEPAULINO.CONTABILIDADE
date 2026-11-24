@@ -542,6 +542,18 @@ footer { background: #10100f; padding: 72px var(--pad) 32px; }
 
 /* Landing page de campanha para médicos */
 .campaign-header { border-bottom-color: rgba(201,178,123,.2); }
+.campaign-header .campaign-back {
+  display: inline-flex; flex: 0 0 auto; align-items: center; gap: 8px;
+  min-height: 44px; padding: 0 12px; border: 1px solid rgba(187,167,129,.28);
+  border-radius: 3px; color: #e1d8c8; font: 500 12px/1.3 var(--sans);
+  white-space: nowrap; transition: background .2s, color .2s;
+}
+.campaign-back:hover { background: rgba(187,167,129,.1); color: #fff; }
+.campaign-back svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.campaign-back-short { display: none; }
+@media (max-width: 370px) {
+  .campaign-header .desktop-cta svg { display: none; }
+}
 .campaign-header .campaign-context {
   margin-left: auto;
   color: #a49c91;
@@ -674,8 +686,14 @@ footer { background: #10100f; padding: 72px var(--pad) 32px; }
 }
 
 @media (max-width: 560px) {
-  .campaign-header .header-brand { width: min(206px,53vw); }
+  .campaign-header { gap: 8px; }
+  .campaign-header .header-brand { width: min(155px,39vw); }
+  .campaign-header .campaign-back { padding: 0 7px; gap: 4px; font-size: 11px; }
+  .campaign-back span:not(.campaign-back-short) { display: none; }
+  .campaign-back .campaign-back-short { display: inline; }
+  .campaign-back svg { width: 13px; height: 13px; }
   .campaign-header .desktop-cta { display: inline-flex; width: auto; min-height: 42px; padding: 0 13px; font-size: 0; }
+  .campaign-header .desktop-cta { padding-inline: 9px; gap: 5px; }
   .campaign-header .desktop-cta::before { content: "Diagnóstico"; font-size: 10px; }
   .campaign-header .desktop-cta svg { width: 15px; }
   .campaign-hero { padding: 111px 22px 58px; }
